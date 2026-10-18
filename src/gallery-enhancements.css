@@ -1,0 +1,332 @@
+/* Gallery category tabs and quick copy, while keeping the paper-and-garden aesthetic. */
+.sourceTabs {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  border-bottom: 1px solid #dbe3d4;
+  margin: 22px 0 0;
+}
+.sourceTab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 52px;
+  padding: 11px 22px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #6e7e6a;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.sourceTab:hover {
+  color: #3a5a40;
+  background: #e9efdf70;
+}
+.sourceTab.active {
+  border-bottom-color: #3a8a53;
+  color: #315f38;
+}
+.sourceTab:focus-visible,
+.copyCoordinates:focus-visible {
+  outline: 2px solid #3a8a53;
+  outline-offset: 2px;
+}
+.sourceTabs + .toolbar {
+  margin-top: 22px;
+}
+.postcard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.postcard .cardClick {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+.postcard .body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+.postcard .foot {
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.postcard .foot > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.postcard .categoryLabel {font-weight:700;color:#3c7650}
+.postcard .externalCredit {color:#748b78}
+@media (min-width: 571px) and (max-width: 960px) {
+  .toolbar {flex-wrap:wrap}
+  .toolbar .search {flex:1 1 100%;max-width:none}
+  .toolbar .selectWrap {flex:1 1 auto}
+}
+.postcard .place {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.postcard .geo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cardActions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 11px 11px;
+}
+.ownerFileInput{display:none}
+.ownerBar{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 16px;margin-bottom:16px;border-radius:12px;background:#e8efdf;color:#3a5a40;font-size:12px;line-height:1.6}
+.ownerBar button{flex:none;border:1px solid #bbcead;background:#fffdf8;color:#3a5a40;padding:8px;border-radius:9px;font-size:12px}
+.ownerActions{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%}
+.ownerActions button{min-width:0;border:1px solid #c2d2be;background:#eff4e9;border-radius:9px;color:#365939;min-height:36px;font-size:12px;font-weight:600;cursor:pointer}
+.ownerActions .ownerDelete{border-color:#ebc8c5;color:#984a47;background:#fff0ec}
+.sharedHint{grid-column:1/-1;font-size:11px;color:#56795a;text-align:center;padding:3px}
+.editForm{max-width:640px}
+.editForm h2{margin-top:0}
+.editForm p{font-size:13px;line-height:1.5}
+.editGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.editGrid label{font-size:12px;color:#4b634e;display:flex;flex-direction:column;gap:5px;min-width:0}
+.editGrid input,.editGrid select{width:100%;padding:10px;border:1px solid #c5d6c3;border-radius:8px;background:white;color:#344d35;font-size:15px}
+.editGrid .editWide{grid-column:1/-1}
+.editGrid .editSources{border:1px solid #c5d6c3;border-radius:10px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0;padding:11px;min-width:0}
+.editGrid .editSources legend{color:#4b634e;font-size:12px;font-weight:700}
+.editGrid .editSources label{display:inline-flex;flex-direction:row;align-items:center;gap:6px;font-size:13px}
+.editGrid .editSources input[type=checkbox]{width:18px;height:18px;accent-color:#3a5a40;padding:0;margin:0}
+.editActions{display:flex;justify-content:end;gap:10px;margin-top:20px}
+.editActions button{border:1px solid #aac0a6;border-radius:8px;background:#f2f6ee;color:#3a5a40;padding:11px 16px;font-weight:600}
+.editActions button[type=submit]{background:#3a5a40;color:white}
+.editActions button:disabled{opacity:.6}
+@media(max-width:570px){.editGrid{grid-template-columns:1fr}.editGrid .editWide{grid-column:auto}}
+.ownerActions button:disabled{opacity:.45}
+.duplicateActions{display:flex;flex-direction:column;gap:5px}
+.duplicateActions button{min-height:35px;border:1px solid #d7c9ad;background:#fbf6e9;color:#705632;border-radius:9px;font-size:12px;font-weight:600;cursor:pointer}
+.duplicateActions button:disabled{opacity:.5}
+.duplicatePending{font-size:11px;line-height:1.5;color:#835c24}
+.duplicateForm{max-width:570px}
+.duplicateForm p{line-height:1.6;font-size:13px}
+.duplicateForm label{font-size:13px;color:#3a5a40}
+.duplicateForm select{display:block;width:100%;max-width:100%;padding:10px;margin-top:5px;border:1px solid #c5d6c3;border-radius:9px;background:white;color:#344d35}
+.pagination{display:flex;flex-direction:column;align-items:center;gap:13px;margin:36px 0 2px;padding:12px 0;color:#52694e}
+.paginationSummary{font-size:12px;color:#798773;margin:0;text-align:center}
+.paginationButtons{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;max-width:100%}
+.paginationButtons button{min-height:42px;min-width:42px;border:1px solid #cbd8c4;border-radius:10px;background:#fffdf9;color:#3a5a40;font-size:13px;font-weight:650;padding:9px;cursor:pointer}
+.paginationButtons button:hover:not(:disabled){background:#e6efdf}
+.paginationButtons button:focus-visible{outline:2px solid #3a8a53;outline-offset:2px}
+.paginationButtons button:disabled{opacity:.42;cursor:not-allowed}
+.paginationButtons .pageNumber.active{background:#3a5a40;color:#fffdf9;border-color:#3a5a40}
+.paginationButtons .pageStep{padding:9px 13px}
+.pageEllipsis{font-size:17px;color:#86957f;min-width:18px;text-align:center}
+@media(max-width:570px){.pagination{margin-top:26px}.paginationButtons{gap:6px}.paginationButtons button{min-width:40px;min-height:42px}.paginationButtons .pageStep{padding:8px 10px}}
+.copyCoordinates {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 41px;
+  border: 1px solid #d1deca;
+  border-radius: 10px;
+  color: #3a5a40;
+  background: #e9f0e3;
+  font-size: 13px;
+  font-weight: 650;
+}
+.copyCoordinates:hover {
+  background: #d8e6d4;
+}
+.copyFeedback {
+  background: #e8efdc;
+  border-radius: 9px;
+  padding: 10px 14px;
+  color: #426242;
+  font-size: 12px;
+}
+@media (max-width: 570px) {
+  .ownerBar{padding:10px;font-size:11px;flex-wrap:wrap}
+  .ownerActions button{min-height:34px;font-size:11px}
+  header.hero {
+    min-height: 0;
+  }
+  .topline {
+    padding: 15px 17px 8px;
+  }
+  .heroInside {
+    margin: 10px auto 22px;
+  }
+  .hero h1 {
+    margin: 8px 0;
+    font-size: clamp(40px, 11vw, 51px);
+  }
+  .hero h1 .flower {
+    font-size: 22px;
+  }
+  .hero p {
+    padding: 0 12px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  .stats {
+    margin-top: 15px;
+    gap: 24px;
+  }
+  .stats b {
+    font-size: 20px;
+  }
+  .contents {
+    padding: 27px 12px 55px;
+  }
+  .sectionHead {
+    gap: 8px;
+    align-items: center;
+  }
+  .sectionHead h2 {
+    font-size: 24px;
+    margin: 5px 0;
+  }
+  .sectionHead p {
+    margin: 6px 0;
+    font-size: 12px;
+  }
+  .count {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .sourceTabs {
+    gap: 2px;
+    margin: 13px 0 0;
+    justify-content: space-between;
+  }
+  .sourceTab {
+    flex: 1 1 0;
+    gap: 4px;
+    padding: 9px 2px;
+    min-height: 45px;
+    font-size: 12px;
+  }
+  .sourceTab span:first-child {
+    font-size: 16px;
+  }
+  .sourceTabs + .toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 19px;
+  }
+  .toolbar .search {
+    max-width: none;
+    flex: 1 0 100%;
+  }
+  .toolbar .selectWrap {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .toolbar .selectWrap select {
+    min-width: 0;
+    width: 100%;
+  }
+  .toolbar .refreshGallery {
+    flex: 0 1 auto;
+    min-width: 0;
+    font-size: 12px;
+    padding: 11px;
+  }
+  .refreshStatus {
+    margin: -5px 0 18px;
+  }
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: none;
+    gap: 15px 11px;
+    margin: 0;
+  }
+  .postcard {
+    transform: none;
+    padding: 6px 6px 0;
+    border-radius: 12px;
+    box-shadow: 0 5px 13px rgba(68,65,51,.09);
+  }
+  .postcard:hover {
+    transform: translateY(-2px);
+  }
+  .postcard .picture {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.05;
+    border-radius: 8px 8px 0 0;
+  }
+  .picturePlaceholder svg {
+    width: 27px;
+    height: 27px;
+  }
+  .picturePlaceholder span {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+  .cornerStamp {
+    top: 5px;
+    right: 5px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+  .postcard .body {
+    padding: 10px 5px 9px;
+  }
+  .postcard .place {
+    font-size: 14px;
+  }
+  .postcard .geo {
+    font-size: 11px;
+    gap: 3px;
+    margin-top: 6px;
+  }
+  .postcard .geo svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+  .postcard .foot {
+    display: grid;
+    gap: 4px;
+    margin-top: 11px;
+    padding: 8px 0 2px;
+    font-size: 10px;
+  }
+  .postcard .foot time {
+    display: none;
+  }
+  .cardActions {
+    padding: 0 5px 7px;
+  }
+  .copyCoordinates {
+    min-height: 37px;
+    gap: 6px;
+    font-size: 11px;
+  }
+  .copyCoordinates svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* Uploader names are public, but invitation hashes remain private in Cloudflare D1. */
+.uploaderMeta{margin-top:9px;color:#708269;font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+@media(max-width:570px){.uploaderMeta{margin-top:7px;font-size:10px}}
+
+.multiFilter{position:relative;align-self:center;border:1px solid #c9d4c8;border-radius:10px;padding:9px 12px;background:#fff;min-width:120px}.multiFilter summary{cursor:pointer;font-size:14px}.multiFilterOptions{position:absolute;z-index:15;top:100%;left:0;background:white;border:1px solid #c9d4c8;border-radius:10px;padding:12px;min-width:180px;max-height:260px;overflow:auto;box-shadow:0 8px 22px #0002}.multiFilterOptions label{display:flex;align-items:center;gap:8px;padding:6px 2px;white-space:nowrap}.multiFilterOptions button{margin-bottom:8px}
